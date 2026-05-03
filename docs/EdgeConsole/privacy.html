@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#0a0e1a" />
+<meta name="color-scheme" content="dark" />
+<title>سياسة الخصوصيّة · Privacy · sbay-dev Edge Console</title>
+<meta name="description" content="Privacy policy of the sbay-dev Edge Console extension. Local-first, zero analytics, no third-party trackers." />
+<meta name="robots" content="index,follow" />
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+<link rel="canonical" href="https://sbay-dev.github.io/EdgeConsole/privacy.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+
+<header class="nav glass">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="28" height="28"><defs><linearGradient id="gp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7af6ff"/><stop offset="1" stop-color="#7c5cff"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#gp)"/><path d="M11 21c0-3 5-3 5-6s-5-3-5-6" stroke="#0a0e1a" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="21" cy="21" r="2" fill="#0a0e1a"/></svg>
+    </span>
+    <span class="brand-text">
+      <strong>sbay-dev</strong>
+      <em data-i18n="brand.tag">Edge Console · مطورو المستقبل</em>
+    </span>
+  </a>
+  <nav class="nav-links">
+    <a href="../index.html#features" data-i18n="nav.features">المزايا</a>
+    <a href="../index.html#architecture" data-i18n="nav.arch">المعمارية</a>
+    <a href="../index.html#install" data-i18n="nav.install">التثبيت</a>
+  </nav>
+  <div class="nav-actions">
+    <button id="lang-toggle" class="chip" aria-label="Switch language">
+      <span class="lang-ar">EN</span><span class="lang-en">AR</span>
+    </button>
+    <a class="chip primary" href="https://github.com/sbay-dev/EdgeConsole" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</header>
+
+<main class="legal">
+  <h1>
+    <span data-i18n="p.title1">سياسة</span>
+    <span class="grad" data-i18n="p.title2">الخصوصيّة</span>
+  </h1>
+  <p class="updated" data-i18n="p.updated">آخر تحديث: ٣ مايو ٢٠٢٦</p>
+
+  <div class="toc glass">
+    <a href="#summary"     data-i18n="p.toc1">الملخّص</a>
+    <a href="#collect"     data-i18n="p.toc2">ما نجمعه</a>
+    <a href="#permissions" data-i18n="p.toc3">الأذونات</a>
+    <a href="#copilot"     data-i18n="p.toc4">تكامل Copilot</a>
+    <a href="#third"       data-i18n="p.toc5">المشاركة مع الغير</a>
+    <a href="#rights"      data-i18n="p.toc6">حقوقك</a>
+    <a href="#contact"     data-i18n="p.toc7">التواصل</a>
+  </div>
+
+  <section id="summary">
+    <h2 data-i18n="p.h1">الملخّص</h2>
+    <p data-i18n="p.p1">
+      إضافة <b>sbay-dev · Edge Console</b> أداةُ تطويرٍ تعمل بالكامل على جهازك. لا نُشغّل خوادمَ خلفيّةً، ولا نُرسل بياناتِ تصفّحك إلى أيّ طرفٍ ثالث، ولا نستخدم أنظمةَ تحليلٍ أو إعلاناتٍ أو متعقّبات.
+    </p>
+    <p data-i18n="p.p1b">
+      كلّ ما تلتقطه الإضافة من معلوماتٍ هندسيّةٍ (سجلّات الكونسول، أحداث الشبكة، عناصر DOM، ملفّات الموقع) يبقى محلّيًّا في متصفّحك أو يُمرَّر — باختيارك — إلى أداتك المحلّيّة <code>gh copilot cli</code> عبر جسرِ MCP.
+    </p>
+  </section>
+
+  <section id="collect">
+    <h2 data-i18n="p.h2">ما نجمعه (وما لا نجمعه)</h2>
+    <p data-i18n="p.p2a">تعمل الإضافة على بياناتٍ مؤقّتةٍ ضمن ذاكرة المتصفّح فقط، وتشمل:</p>
+    <ul>
+      <li data-i18n="p.li1">سجلّات الكونسول والاستثناءات للصفحة الفعّالة عند فتح DevTools.</li>
+      <li data-i18n="p.li2">أحداث الشبكة (URL، رؤوس، توقيتات، رموز الحالة) من تبويبك الحاليّ.</li>
+      <li data-i18n="p.li3">لقطاتٌ من شجرة DOM والأنماط عند طلبك صراحةً.</li>
+      <li data-i18n="p.li4">قائمةُ ملفّات الموقع الفعّال وقواعد البيانات الخاصّة بـ WasmMvc (في الإصدارات اللاحقة).</li>
+    </ul>
+    <p data-i18n="p.p2b">
+      <b>لا نجمع</b>: كلمات المرور، رؤوس الاستيثاق، الكوكيز، البيانات الشخصيّة، السجلّات الجغرافيّة، أو أيّ معرّفٍ يُحدّد هويّتك. كلّ ما سبق يبقى محلّيًّا ولا يُرسَل إلى مُلّاك الإضافة.
+    </p>
+  </section>
+
+  <section id="permissions">
+    <h2 data-i18n="p.h3">الأذونات وسبب طلبها</h2>
+    <ul>
+      <li data-i18n="p.li5"><code>debugger</code> · للوصول إلى Chrome DevTools Protocol وقراءة أحداث الكونسول والشبكة.</li>
+      <li data-i18n="p.li6"><code>storage</code> · لحفظ تفضيلاتك المحلّيّة (السمة، حالة المرشّحات).</li>
+      <li data-i18n="p.li7"><code>scripting</code> + <code>activeTab</code> · لحقن الواجهة المضمّنة عند طلبها فقط.</li>
+      <li data-i18n="p.li8"><code>nativeMessaging</code> · للتواصل مع جسر <code>sbay-devtools-bridge</code> الذي يعمل على جهازك.</li>
+      <li data-i18n="p.li9"><code>host_permissions: &lt;all_urls&gt;</code> · لأنّ DevTools تحتاج التوصيل بأيّ موقع تعمل عليه أنت.</li>
+    </ul>
+  </section>
+
+  <section id="copilot">
+    <h2 data-i18n="p.h4">تكامل GitHub Copilot عبر MCP</h2>
+    <p data-i18n="p.p4a">
+      حين تُفعّل جسرَ Copilot، يَصِل خادم MCP المحلّيّ (يعمل على جهازك) بـ <code>gh copilot cli</code>. عند هذه النقطة، ما تطلبه أنت من Copilot قد يُرسَل إلى GitHub وفقًا لسياسة Copilot الخاصّة بك. <b>الإضافة لا ترسل أيّ شيءٍ إلى GitHub بشكلٍ مباشر.</b>
+    </p>
+    <p data-i18n="p.p4b">يمكنك تعطيلُ الجسر في أيّ وقتٍ بإيقاف العمليّة المحلّيّة، وستستمرّ بقيّةُ الأدوات بالعمل.</p>
+  </section>
+
+  <section id="third">
+    <h2 data-i18n="p.h5">المشاركة مع أطرافٍ ثالثة</h2>
+    <p data-i18n="p.p5">
+      لا نبيع، لا نؤجّر، ولا نشارك بياناتك. لا تتصل الإضافة بأيّ خدمةٍ خارجيّةٍ تابعةٍ لنا. الاتصالات الوحيدة الخارجة هي تلك التي يبدؤها <code>gh copilot cli</code> بناءً على طلبك أنت.
+    </p>
+  </section>
+
+  <section id="rights">
+    <h2 data-i18n="p.h6">حقوقك</h2>
+    <p data-i18n="p.p6">
+      بما أنّنا لا نخزّن بياناتك على خوادمنا، فإنّ التحكّم الكامل بيدك: تعطيل الإضافة، إزالتها، أو مسح تخزينها المحلّيّ من <code>edge://extensions</code> يحذف كلّ شيءٍ فورًا.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="p.h7">التواصل</h2>
+    <p data-i18n="p.p7">
+      لأيّ سؤالٍ يخصّ الخصوصيّة، افتح بطاقةً عامّةً على المستودع: <a class="link" href="https://github.com/sbay-dev/EdgeConsole/issues">github.com/sbay-dev/EdgeConsole/issues</a>.
+    </p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-brand"><strong>sbay-dev</strong> · Edge Console</div>
+    <div class="foot-links">
+      <a href="../index.html">Home</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="https://github.com/sbay-dev/EdgeConsole" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-legal">© 2026 sbay-dev · <span data-i18n="foot.tag">مطوّرو المستقبل</span></div>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
