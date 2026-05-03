@@ -1,0 +1,35 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+publish/
+**/AppPackages/
+.vs/
+
+# Node
+node_modules/
+dist/
+.vite/
+*.log
+.npm/
+
+# WASM publish output
+**/wwwroot/_framework/
+**/wwwroot/.cepha/
+
+# Editor
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Extension build artifacts
+extension-dist/
+*.zip
+*.crx

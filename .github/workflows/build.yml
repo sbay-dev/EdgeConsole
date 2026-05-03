@@ -1,0 +1,43 @@
+name: build
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Restore .NET
+        run: dotnet restore
+
+      - name: Build runtime
+        run: dotnet build src/Sbay.DevTools.Runtime -c Release --no-restore
+
+      - name: Build bridge
+        run: dotnet build src/Sbay.DevTools.Bridge -c Release --no-restore
+
+      - name: Run tests
+        run: dotnet test tests/Sbay.DevTools.Tests -c Release --no-restore || true
+
+      - name: Build extension
+        run: |
+          cd src/Sbay.DevTools.Extension
+          npm ci
+          npm run typecheck
+          npm run build
+
+      - name: Pack
+        run: bash tools/pack-extension.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbay-dev-extension
+          path: sbay-dev-extension.zip

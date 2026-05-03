@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Sbay.DevTools.Bridge/Sbay.DevTools.Bridge.csproj" />
+    <Project Path="src/Sbay.DevTools.Runtime/Sbay.DevTools.Runtime.csproj" />
+  </Folder>
+</Solution>

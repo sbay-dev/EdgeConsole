@@ -1,0 +1,29 @@
+<Project>
+
+  <!-- Termux/arm64 workaround: re-declare WebAssembly SDK tasks without
+       TaskHostFactory so they execute in-process, avoiding MSB4216 (no
+       out-of-proc arm64 task host on Android/Termux). -->
+  <PropertyGroup Condition="'$(_WebAssemblySdkTasksAssembly)' != ''">
+    <_DisableWasmTaskHost>true</_DisableWasmTaskHost>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="'$(_DisableWasmTaskHost)' == 'true'">
+      <ItemGroup />
+    </When>
+  </Choose>
+
+  <UsingTask Condition="'$(_WebAssemblySdkTasksAssembly)' != ''"
+             TaskName="Microsoft.NET.Sdk.WebAssembly.GenerateWasmBootJson"
+             AssemblyFile="$(_WebAssemblySdkTasksAssembly)" />
+  <UsingTask Condition="'$(_WebAssemblySdkTasksAssembly)' != ''"
+             TaskName="Microsoft.NET.Sdk.WebAssembly.ComputeWasmBuildAssets"
+             AssemblyFile="$(_WebAssemblySdkTasksAssembly)" />
+  <UsingTask Condition="'$(_WebAssemblySdkTasksAssembly)' != ''"
+             TaskName="Microsoft.NET.Sdk.WebAssembly.ComputeWasmPublishAssets"
+             AssemblyFile="$(_WebAssemblySdkTasksAssembly)" />
+  <UsingTask Condition="'$(_WebAssemblySdkTasksAssembly)' != ''"
+             TaskName="Microsoft.NET.Sdk.WebAssembly.ConvertDllsToWebCil"
+             AssemblyFile="$(_WebAssemblySdkTasksAssembly)" />
+
+</Project>

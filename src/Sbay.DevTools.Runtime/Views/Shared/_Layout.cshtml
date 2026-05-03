@@ -1,0 +1,14 @@
+<div class="sb-shell">
+    <header class="sb-toolbar" role="toolbar" aria-label="DevTools panels">
+        <nav class="sb-tabs">
+            <a class="sb-tab @(ViewBag.ActivePanel == "console" ? "is-active" : "")" href="/console">Console</a>
+            <a class="sb-tab @(ViewBag.ActivePanel == "elements" ? "is-active" : "")" href="/elements">Elements</a>
+            <a class="sb-tab @(ViewBag.ActivePanel == "network" ? "is-active" : "")" href="/network">Network</a>
+            <a class="sb-tab @(ViewBag.ActivePanel == "sources" ? "is-active" : "")" href="/sources">Sources</a>
+            <a class="sb-tab @(ViewBag.ActivePanel == "application" ? "is-active" : "")" href="/application">Application</a>
+        </nav>
+    </header>
+    <section class="sb-panel">
+        @RenderBody()
+    </section>
+</div>

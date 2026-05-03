@@ -1,0 +1,27 @@
+@{
+    Layout = "_Layout";
+}
+<div class="sb-console">
+    <div class="sb-console-toolbar" role="toolbar">
+        <button class="sb-icon-btn" data-action="clear" title="Clear console">⌀</button>
+        <select class="sb-level-filter" aria-label="Level filter">
+            <option value="all">All levels</option>
+            <option value="error">Errors</option>
+            <option value="warning">Warnings</option>
+            <option value="info">Info</option>
+            <option value="log">Logs</option>
+            <option value="debug">Verbose</option>
+        </select>
+        <input class="sb-filter-input" type="search" placeholder="Filter" aria-label="Filter messages" />
+    </div>
+
+    <ol class="sb-console-stream" role="log" aria-live="polite" data-stream></ol>
+
+    <form class="sb-prompt" data-prompt>
+        <span class="sb-prompt-marker" aria-hidden="true">›</span>
+        <input class="sb-prompt-input" type="text" autocomplete="off" spellcheck="false"
+               aria-label="Console expression" />
+    </form>
+</div>
+
+<script type="module" src="/js/console.js"></script>

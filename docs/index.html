@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#0a0e1a" />
+<meta name="color-scheme" content="dark" />
+<title>sbay-dev — Edge Console · مطورو المستقبل</title>
+<meta name="description" content="أدوات مطوّرين بمستوى الحاسوب لمتصفّح Edge على الأجهزة المحمولة كبيرة الشاشة، مع تكامل أصلي مع gh copilot cli عبر MCP." />
+<meta property="og:title" content="sbay-dev · Edge Console" />
+<meta property="og:description" content="DevTools-grade tooling for Edge Mobile, with native gh copilot cli (MCP) integration." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sbay-dev.github.io/EdgeConsole" />
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+
+<header class="nav glass">
+  <a class="brand" href="#top">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="28" height="28"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7af6ff"/><stop offset="1" stop-color="#7c5cff"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#g1)"/><path d="M11 21c0-3 5-3 5-6s-5-3-5-6" stroke="#0a0e1a" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="21" cy="21" r="2" fill="#0a0e1a"/></svg>
+    </span>
+    <span class="brand-text">
+      <strong>sbay-dev</strong>
+      <em data-i18n="brand.tag">Edge Console · مطورو المستقبل</em>
+    </span>
+  </a>
+  <nav class="nav-links">
+    <a href="#features" data-i18n="nav.features">المزايا</a>
+    <a href="#architecture" data-i18n="nav.arch">المعمارية</a>
+    <a href="#roadmap" data-i18n="nav.roadmap">خارطة الطريق</a>
+    <a href="#install" data-i18n="nav.install">التثبيت</a>
+  </nav>
+  <div class="nav-actions">
+    <button id="lang-toggle" class="chip" aria-label="Switch language">
+      <span class="lang-ar">EN</span><span class="lang-en">AR</span>
+    </button>
+    <a class="chip primary" href="https://github.com/sbay-dev/EdgeConsole" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.32c-2.22.48-2.69-1.07-2.69-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.81.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<main>
+
+<section id="top" class="hero">
+  <div class="hero-inner">
+    <div class="badge-row">
+      <span class="badge"><span class="dot"></span><span data-i18n="hero.status">v1.0.0 · الكونسول جاهز</span></span>
+      <span class="badge soft" data-i18n="hero.platform">Microsoft Edge · MV3 · WebAssembly</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="hero-line-1" data-i18n="hero.title1">أدوات المطوّرين</span>
+      <span class="hero-line-2 grad" data-i18n="hero.title2">من مستوى الحاسوب</span>
+      <span class="hero-line-3" data-i18n="hero.title3">على هاتفك</span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero.sub">
+      Edge Console أداةُ تطويرٍ موسّعةٌ تعمل ضمن متصفّح Microsoft Edge، صنعتها <b>sbay-dev — مطورو المستقبل</b>.
+      تمنحك تجربةَ DevTools كاملةً على الشاشات الكبيرة المحمولة، مع جسرٍ أصليٍّ إلى <code>gh copilot cli</code> عبر بروتوكول MCP.
+    </p>
+    <div class="hero-cta">
+      <a class="btn primary" href="https://github.com/sbay-dev/EdgeConsole/releases/latest" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="hero.cta1">حمّل الإصدار الأول</span>
+      </a>
+      <a class="btn ghost" href="#install">
+        <span data-i18n="hero.cta2">طريقة التثبيت</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline class="arr" points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>0</strong><span data-i18n="hero.m1">تبعيّات في الواجهة</span></div>
+      <div><strong>MV3</strong><span data-i18n="hero.m2">معمارية الإضافة</span></div>
+      <div><strong>MCP</strong><span data-i18n="hero.m3">جسر Copilot أصلي</span></div>
+      <div><strong>WASM</strong><span data-i18n="hero.m4">واجهة C# / Razor</span></div>
+    </div>
+  </div>
+
+  <div class="hero-window glass" aria-hidden="true">
+    <div class="window-bar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <em>console — sbay-dev · Edge Mobile DevTools</em>
+    </div>
+    <div class="window-body">
+<pre class="codetype" data-text="$ gh copilot suggest 'why did my fetch fail?'
+
+  ↳ MCP context: sbay-dev.console.captured (3 errors)
+  ↳ resource: devtools://errors/recent
+
+✓  TypeError: Failed to fetch
+   at api.ts:42  · CORS preflight blocked
+   ↳ origin https://app.example missing in
+     Access-Control-Allow-Origin
+
+▍"></pre>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <header class="section-head">
+    <span class="eyebrow" data-i18n="features.eye">المزايا</span>
+    <h2 data-i18n="features.title">واجهةٌ من زمنٍ آخَر، تعمل اليوم</h2>
+    <p data-i18n="features.sub">كلّ مكوّنٍ صُمِّم ليبدو كأنّه قادمٌ من نسخة Edge المستقبليّة — بأدوات مطوّرٍ كاملةٍ على الشاشات اللوحيّة المحمولة.</p>
+  </header>
+  <div class="grid">
+
+    <article class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M7 10l3 2-3 2M12 14h5"/></svg>
+      </div>
+      <h3 data-i18n="f.console.t">كونسول كامل</h3>
+      <p data-i18n="f.console.d">يلتقط <code>console.*</code> والاستثناءات وفشل الشبكة عبر CDP، مع تلوينٍ ومرشّحاتٍ ومستوياتٍ احترافية.</p>
+      <span class="tag ok" data-i18n="status.shipping">متاح الآن</span>
+    </article>
+
+    <article class="card highlight">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h7l2 2h9v11H3z"/><path d="M7 14h4M7 11h7"/></svg>
+      </div>
+      <h3 data-i18n="f.pofs.t">شجرة Pofs</h3>
+      <p data-i18n="f.pofs.d">استعراضٌ كاملٌ لملفّات الموقع الفعّال وملفّات WasmMvc (OPFS · IndexedDB · SQLite) كشجرةِ مجلّدات، مع زرّ تحميل لكلّ عقدة.</p>
+      <span class="tag soon" data-i18n="status.soon">قريبًا · v1.1</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+      </div>
+      <h3 data-i18n="f.network.t">الشبكة</h3>
+      <p data-i18n="f.network.d">مراقبةٌ مباشرةٌ للطلبات، توقيتاتٌ، رؤوسٌ، وحمولاتٌ — كلّها قابلةٌ للنقل إلى Copilot كسياقٍ بضغطة.</p>
+      <span class="tag wip" data-i18n="status.planned">على الخارطة</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
+      </div>
+      <h3 data-i18n="f.elements.t">العناصر</h3>
+      <p data-i18n="f.elements.d">شجرة DOM حيّة، تعديلٌ آنيٌّ للأنماط، ومحرّك styles باللمس — مهيّأٌ للشاشات الكبيرة.</p>
+      <span class="tag wip" data-i18n="status.planned">على الخارطة</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <h3 data-i18n="f.copilot.t">جسر Copilot عبر MCP</h3>
+      <p data-i18n="f.copilot.d">خادم MCP أصليٌّ يبثّ الأحداث إلى <code>gh copilot cli</code> ليصبح المساعدُ مدركًا لحالة الصفحة وأخطائها لحظةً بلحظة.</p>
+      <span class="tag ok" data-i18n="status.shipping">متاح الآن</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+      </div>
+      <h3 data-i18n="f.wasm.t">واجهة WasmMvc</h3>
+      <p data-i18n="f.wasm.d">واجهةُ DevTools نفسُها مكتوبةٌ بـ C# / Razor فوق <code>NetWasmMvc.SDK</code> — أداءٌ أصليٌّ وتشغيلٌ آمنٌ في sandbox.</p>
+      <span class="tag ok" data-i18n="status.shipping">متاح الآن</span>
+    </article>
+
+  </div>
+</section>
+
+<section id="architecture" class="section">
+  <header class="section-head">
+    <span class="eyebrow" data-i18n="arch.eye">المعمارية</span>
+    <h2 data-i18n="arch.title">ثلاث طبقات · غير معتمدةٍ على السحابة</h2>
+    <p data-i18n="arch.sub">إضافة MV3 ↔ جسر MCP محلّيّ ↔ واجهة WasmMvc. كلّ شيءٍ يجري على جهازك.</p>
+  </header>
+
+  <div class="arch glass">
+    <div class="arch-col">
+      <div class="arch-tag" data-i18n="arch.l1">المتصفّح · MV3</div>
+      <ul>
+        <li data-i18n="arch.l1a">Service Worker</li>
+        <li data-i18n="arch.l1b">DevTools page</li>
+        <li data-i18n="arch.l1c">CDP debugger client</li>
+      </ul>
+    </div>
+    <div class="arch-conn"><span></span><em data-i18n="arch.cn1">CDP / postMessage</em></div>
+    <div class="arch-col mid">
+      <div class="arch-tag" data-i18n="arch.l2">الواجهة · WASM</div>
+      <ul>
+        <li>WasmMvcRuntime</li>
+        <li>Razor + C#</li>
+        <li>Cepha App shell</li>
+      </ul>
+    </div>
+    <div class="arch-conn"><span></span><em data-i18n="arch.cn2">Native Messaging / WS</em></div>
+    <div class="arch-col">
+      <div class="arch-tag" data-i18n="arch.l3">الجسر · MCP</div>
+      <ul>
+        <li>Sbay.DevTools.Bridge</li>
+        <li>NLog → stderr</li>
+        <li>gh copilot cli</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" class="section">
+  <header class="section-head">
+    <span class="eyebrow" data-i18n="rm.eye">خارطة الطريق</span>
+    <h2 data-i18n="rm.title">من الكونسول إلى DevTools كاملة</h2>
+  </header>
+  <ol class="timeline">
+    <li class="done">
+      <span class="t-dot"></span>
+      <h4>v1.0 · <span data-i18n="rm.v1">الكونسول</span></h4>
+      <p data-i18n="rm.v1d">إصدارٌ أوّلٌ بكونسول كامل + جسر MCP لـ Copilot.</p>
+    </li>
+    <li class="next">
+      <span class="t-dot"></span>
+      <h4>v1.1 · <span data-i18n="rm.v11">شجرة Pofs</span></h4>
+      <p data-i18n="rm.v11d">تبويبٌ يستعرض ملفّات الموقع الفعّال وملفّات WasmMvc، مع زرّ تحميلٍ يقرأ ويُنزّل ما يَختاره المطوّر.</p>
+    </li>
+    <li>
+      <span class="t-dot"></span>
+      <h4>v1.2 · <span data-i18n="rm.v12">الشبكة والعناصر</span></h4>
+      <p data-i18n="rm.v12d">لوحَتَا Network وElements بأسلوب Chromium DevTools كاملًا.</p>
+    </li>
+    <li>
+      <span class="t-dot"></span>
+      <h4>v2.0 · <span data-i18n="rm.v2">المصادر والأداء</span></h4>
+      <p data-i18n="rm.v2d">Sources مع نقاط توقّفٍ، وتحليلٌ للأداء وتطبيقٌ تخزينيّ.</p>
+    </li>
+  </ol>
+</section>
+
+<section id="install" class="section">
+  <header class="section-head">
+    <span class="eyebrow" data-i18n="ins.eye">التثبيت</span>
+    <h2 data-i18n="ins.title">ثلاث خطواتٍ لتشغيلها</h2>
+  </header>
+  <div class="steps">
+    <div class="step glass">
+      <span class="num">1</span>
+      <h4 data-i18n="ins.s1t">حمّل الحزمة</h4>
+      <p data-i18n="ins.s1d">نزّل <code>sbay-dev-extension-v1.0.0.zip</code> من صفحة الإصدارات وفُكّ ضغطه.</p>
+    </div>
+    <div class="step glass">
+      <span class="num">2</span>
+      <h4 data-i18n="ins.s2t">حمّل في Edge</h4>
+      <p data-i18n="ins.s2d">افتح <code>edge://extensions</code>، فعّل وضع المطوّر، ثم <i data-i18n="ins.s2i">«تحميل غير مضغوط»</i> وأشّر إلى المجلد.</p>
+    </div>
+    <div class="step glass">
+      <span class="num">3</span>
+      <h4 data-i18n="ins.s3t">شغّل الجسر</h4>
+      <p data-i18n="ins.s3d">في الطرفيّة شغّل <code>sbay-devtools-bridge --ws-only</code> ثم افتح DevTools واختر تبويب <b>sbay-dev</b>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-inner glass">
+    <h2 data-i18n="cta.title">صُنع بفخرٍ في المنطقة العربيّة</h2>
+    <p data-i18n="cta.sub">sbay-dev · مطوّرو المستقبل — نبني أدواتٍ تجعل المتصفّحَ مساحةَ عملٍ كاملةٍ على الأجهزة المحمولة.</p>
+    <div class="cta-actions">
+      <a class="btn primary" href="https://github.com/sbay-dev/EdgeConsole" target="_blank" rel="noopener" data-i18n="cta.gh">المستودع على GitHub</a>
+      <a class="btn ghost" href="https://github.com/sbay-dev/EdgeConsole/issues" target="_blank" rel="noopener" data-i18n="cta.issues">شارك ملاحظاتك</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-brand">
+      <strong>sbay-dev</strong> · Edge Console
+    </div>
+    <div class="foot-links">
+      <a href="https://github.com/sbay-dev/EdgeConsole" target="_blank" rel="noopener">GitHub</a>
+      <a href="privacy.html" data-i18n="foot.privacy">سياسة الخصوصيّة</a>
+      <a href="https://github.com/sbay-dev/EdgeConsole/blob/main/docs/architecture.md" target="_blank" rel="noopener" data-i18n="foot.arch">المعمارية</a>
+      <a href="https://github.com/sbay-dev/EdgeConsole/blob/main/docs/copilot-protocol.md" target="_blank" rel="noopener" data-i18n="foot.proto">بروتوكول Copilot</a>
+    </div>
+    <div class="foot-legal">© 2026 sbay-dev · <span data-i18n="foot.tag">مطوّرو المستقبل</span></div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

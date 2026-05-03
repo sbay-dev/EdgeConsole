@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "sbay-devtools": {
+      "type": "stdio",
+      "command": "sbay-devtools-bridge",
+      "args": ["--mcp"]
+    }
+  }
+}
